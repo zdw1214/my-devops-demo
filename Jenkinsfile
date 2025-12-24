@@ -17,6 +17,7 @@ pipeline {
         }
         stage('构建后端') {
             steps {
+                tool name: 'Maven-3.9.6',type: 'maven'
                 dir('backend') {
                     sh 'mvn clean package -DskipTests'
                     sh 'ls -lh target/*.jar'
