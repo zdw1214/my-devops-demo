@@ -27,7 +27,14 @@ pipeline {
         }
         stage('Docker部署') {
             steps {
-                sh 'docker-compose down || true'
+                sh '''
+                   # 停止并移除由docker-compose管理的容器
+                   docker-compose down || true
+                   # 额外强制移除可能存在的同名容器（如果它不在compose管理范围内）
+                   docker rm -f devops-backend-2340231214 || true
+                   # 可选：清理为<none>的中间镜像，避免磁盘占用
+                   docker image prune -f
+                '''
                 sh 'docker-compose build --no-cache'
                 sh 'docker-compose up -d'
                 sh 'sleep 10 && curl -s http://localhost:8080/info || true'
