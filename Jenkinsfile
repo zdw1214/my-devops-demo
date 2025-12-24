@@ -4,7 +4,7 @@ pipeline {
         stage('拉取代码') {
             steps {
                 git branch: 'main', 
-                url: 'https://github.com/zbaf234/my-devops-demo.git'
+                url: 'https://github.com/zdw1214/my-devops-demo.git'
             }
         }
         stage('构建前端') {
