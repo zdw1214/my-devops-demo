@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    container_name: devops-backend-2340231214
+    ports:
+      - "8080:8080"
+    environment:
+      - STUDENT_INFO=2340231214-张得伟

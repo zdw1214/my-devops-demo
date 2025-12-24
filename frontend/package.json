@@ -1,0 +1,8 @@
+{
+  "name": "demo-frontend",
+  "version": "1.0.0",
+  "description": "前端模拟构建 - 2340231214张得伟",
+  "scripts": {
+    "build": "echo '前端构建开始...' && mkdir -p dist && echo '<html><body><h1>前端页面 (2340231214-张得伟)</h1><p>这是一个DevOps演示前端</p></body></html>' > dist/index.html && echo '前端构建完成！' > build.log"
+  }
+}
